@@ -17,8 +17,8 @@ current_humidity = next(humidity_cycle)
 current_temperature = random.uniform(30.0, 38.0)
 last_temp_update_time = time.time()
 
-# O loop principal agora roda a cada 15 segundos para o ciclo de umidade
-LOOP_INTERVAL = 15 
+# O loop principal agora roda a cada 20 segundos para o ciclo de umidade
+LOOP_INTERVAL = 20 
 
 while True:
     try:
