@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Automação</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Meu Ambiente Inteligente</h1>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h2>Status dos Sensores</h2>
+                <p>🌡️ Temperatura Ambiente: <strong id="temperatura">--</strong> °C</p>
+                <p>💧 Umidade: <strong id="umidade">--</strong> %</p>
+                <p>🌬️ Umidificador: <strong id="umidificador">--</strong></p> <p>🏃 Presença: <strong id="presenca">--</strong></p>
+            </div>
+            
+            <div class="card">
+                <h2>Controle de Modos</h2>
+                <p>Modo Atual: <strong id="modo_atual">--</strong></p>
+                <div class="button-group">
+                    <button class="mode-btn" data-mode="automático">🤖 Automático</button>
+                    <button class="mode-btn" data-mode="estudar">📚 Estudar</button>
+                    <button class="mode-btn" data-mode="jogar">🎮 Jogar</button>
+                    <button class="mode-btn" data-mode="dormir">🌙 Dormir</button>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Ar-Condicionado</h2>
+                <p>Status: <strong id="ac_status">--</strong></p>
+                <p>Temperatura Alvo: <strong id="ac_temp">--</strong> °C</p>
+                <small>(Alvo = Temp. Ambiente - 10°C, com mínimo de 17°C)</small>
+            </div>
+            <div class="card">
+                <h2>Simulação de Presença</h2>
+                 <div class="control-group">
+                    <label>Estava fora?</label>
+                    <input type="radio" id="foraSim" name="statusFora" value="sim"> <label for="foraSim">Sim</label>
+                    <input type="radio" id="foraNao" name="statusFora" value="nao" checked> <label for="foraNao">Não</label>
+                </div>
+                <div id="minutos-container" style="display: none;">
+                    <label for="minutosFora">Minutos fora:</label>
+                    <input type="number" id="minutosFora" value="0" min="0">
+                </div>
+                <button id="btn_simulate_entry">Simular Entrada</button>
+            </div>
+        </div>
+
+        <div class="log-card">
+            <h2>Log de Eventos do Sistema</h2>
+            <div id="log-output"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
